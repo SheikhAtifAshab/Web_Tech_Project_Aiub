@@ -2,36 +2,84 @@
 session_start();
 require_once("../models/userModel.php");
 
-/* REGISTER */
-if(isset($_POST['register'])){
-    registerUser(
-        $_POST['name'],
-        $_POST['email'],
-        $_POST['password'],
-        $_POST['role'],
-        $_POST['shop_name'] ?? null,
-        $_POST['shop_address'] ?? null
-    );
-    header("Location: ../views/auth/login.php");
+/* ================= ADMIN ACTIONS (GET) ================= */
+if (isset($_GET['approveSeller'])) {
+
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+        header("Location: ../views/auth/login.php");
+        exit();
+    }
+
+    approveSeller($_GET['approveSeller']);
+    header("Location: ../views/admin/manage_users.php");
     exit();
 }
 
-/* LOGIN */
-if(isset($_POST['login'])){
-    $user = authUser($_POST['email'],$_POST['password']);
+if (isset($_GET['denySeller'])) {
 
-    if($user==="NOT_APPROVED"){
-        header("Location: ../views/auth/login.php?err=Seller not approved");
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+        header("Location: ../views/auth/login.php");
         exit();
     }
 
-    if($user){
-        $_SESSION['id']=$user['id'];
-        $_SESSION['role']=$user['role'];
+    denySeller($_GET['denySeller']);
+    header("Location: ../views/admin/manage_users.php");
+    exit();
+}
 
-        header("Location: ../views/{$user['role']}/dashboard.php");
+/* ================= POST REQUESTS ================= */
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    /* ================= LOGIN ================= */
+    if (isset($_POST['submit'])) {
+
+        $id   = trim($_POST['id'] ?? "");
+        $pass = trim($_POST['password'] ?? "");
+
+        if (empty($id) || empty($pass)) {
+            header("Location: ../views/auth/login.php?genErr=Fields cannot be empty");
+            exit();
+        }
+
+        $user = authUser($id, $pass);
+
+        if ($user === "NOT_APPROVED") {
+            header("Location: ../views/auth/login.php?genErr=Seller not approved yet");
+            exit();
+        }
+
+        if (!$user) {
+            header("Location: ../views/auth/login.php?genErr=Invalid ID or password");
+            exit();
+        }
+
+        $_SESSION['id']   = $user['id'];
+        $_SESSION['role'] = $user['role'];
+
+        if ($user['role'] === 'admin') {
+            header("Location: ../views/admin/dashboard.php");
+        } elseif ($user['role'] === 'seller') {
+            header("Location: ../views/seller/dashboard.php");
+        } else {
+            header("Location: ../views/customer/products.php");
+        }
         exit();
     }
-    header("Location: ../views/auth/login.php?err=Invalid login");
+
+    /* ================= REGISTER ================= */
+    if (isset($_POST['register'])) {
+
+        registerUser(
+            $_POST['name'],
+            $_POST['email'],
+            $_POST['password'],
+            $_POST['role'],
+            $_POST['shop_name'] ?? null,
+            $_POST['shop_address'] ?? null
+        );
+
+        header("Location: ../views/auth/login.php");
+        exit();
+    }
 }
 ?>
