@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+<link rel="stylesheet" href="../css/style.css">
 
 <h2>Seller Dashboard</h2>
 
