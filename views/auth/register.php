@@ -10,6 +10,25 @@ session_start();
 </head>
 <body>
 
+    
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="../customer/products.php" class="logo-link">
+                    <img src="../../assets/images/logo.png" alt="Logo" class="logo-img">
+                    <span class="site-name">NIRJHOR</span>
+                </a>
+            </div>
+            
+            <div class="header-buttons">
+                <a href="login.php" class="btn-header btn-login">Login</a>
+                <a href="register.php" class="btn-header btn-signup">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    
+
 <h2>User Registration</h2>
 
 <form action="../../controllers/authController.php" method="POST">
