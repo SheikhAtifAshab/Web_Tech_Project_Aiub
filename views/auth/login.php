@@ -7,6 +7,26 @@
         <link rel="stylesheet" href ="../css/style.css">
     </head>
 <body>
+    <body>
+    
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="../customer/products.php" class="logo-link">
+                    <img src="../../assets/images/logo.png" alt="Logo" class="logo-img">
+                    <span class="site-name">NIRJHOR</span>
+                </a>
+            </div>
+            
+            <div class="header-buttons">
+                <a href="login.php" class="btn-header btn-login">Login</a>
+                <a href="register.php" class="btn-header btn-signup">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Nicher sob code same thakbe, kichui change koro na -->
+
     <form action="../../controllers/authController.php" method="POST">
         User Id:
         <input type="text" name="id" placeholder="Input Id"><br>
