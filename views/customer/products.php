@@ -13,6 +13,24 @@ $products = getApprovedProducts();
 </head>
 <body>
 
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="products.php" class="logo-link">
+                    <img src="../../assets/images/logo.png" alt="Logo" class="logo-img">
+                    <span class="site-name">NIRJHOR</span>
+                </a>
+            </div>
+            
+            <div class="header-buttons">
+                <a href="../auth/login.php" class="btn-header btn-login">Login</a>
+                <a href="../auth/register.php" class="btn-header btn-signup">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    
+
 <h2>Nirjhor</h2>
 
 <div class="nav">
