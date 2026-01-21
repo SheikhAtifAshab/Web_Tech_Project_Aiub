@@ -1,6 +1,8 @@
 <?php
 session_start();
 ?>
+<link rel="stylesheet" href="../css/style.css">
+
 
 <h2>Add Product </h2>
 
