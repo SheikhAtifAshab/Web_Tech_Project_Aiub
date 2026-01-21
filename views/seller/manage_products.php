@@ -7,6 +7,7 @@ if ($_SESSION['role'] != 'seller') {
 require_once "../../models/productModel.php";
 $products = getSellerProducts($_SESSION['id']);
 ?>
+<link rel="stylesheet" href="../css/style.css">
 
 <h2>Manage Products</h2>
 
