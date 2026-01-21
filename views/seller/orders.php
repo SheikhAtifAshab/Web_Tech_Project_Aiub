@@ -4,7 +4,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'seller') {
     header("Location: ../auth/login.php");
     exit();
 }
-<link rel="stylesheet" href="../css/style.css">
+     <link rel="stylesheet" href="../css/style.css">
 
 
 require_once "../../models/dbConnect.php";

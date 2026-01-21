@@ -14,10 +14,8 @@ session_start();
             </div>
             
             <div class="header-buttons">
-                <a href="dashboard.php" class="btn-header btn-login">Dashboard</a>
-                <a href="add_product.php" class="btn-header btn-signup">Add Product</a>
+               
                 <a href="manage_products.php" class="btn-header btn-login">Manage Products</a>
-                <a href="orders.php" class="btn-header btn-login">Orders</a>
                 <a href="../auth/logout.php" class="btn-header btn-logout">Logout</a>
             </div>
         </div>

@@ -1,18 +1,16 @@
 <?php
 session_start();
-require_once "../../models/productModel.php";
-
+require_once '../../models/productModel.php';
 $products = getApprovedProducts();
 ?>
-
 <!doctype html>
 <html>
 <head>
-    <title>Nirjhor</title>
+    <title>Products - Nirjhor</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
+    
     <header class="site-header">
         <div class="header-container">
             <div class="logo-section">
@@ -23,60 +21,37 @@ $products = getApprovedProducts();
             </div>
             
             <div class="header-buttons">
-                <a href="../auth/login.php" class="btn-header btn-login">Login</a>
-                <a href="../auth/register.php" class="btn-header btn-signup">Sign Up</a>
+                <?php if(isset($_SESSION['id'])): ?>
+                    <a href="products.php" class="btn-header btn-login">Products</a>
+                    <?php if($_SESSION['role'] == 'customer'): ?>
+                        <a href="cart.php" class="btn-header btn-login">Cart</a>
+                        <a href="orders.php" class="btn-header btn-login">Orders</a>
+                    <?php endif; ?>
+                    <?php if($_SESSION['role'] == 'seller'): ?>
+                        <a href="../seller/dashboard.php" class="btn-header btn-login">Dashboard</a>
+                    <?php endif; ?>
+                    <?php if($_SESSION['role'] == 'admin'): ?>
+                        <a href="../admin/dashboard.php" class="btn-header btn-login">Dashboard</a>
+                    <?php endif; ?>
+                    <a href="../auth/logout.php" class="btn-header btn-logout">Logout</a>
+                <?php else: ?>
+                    <a href="../auth/login.php" class="btn-header btn-login">Login</a>
+                    <a href="../auth/register.php" class="btn-header btn-signup">Sign Up</a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
 
-    
-
-<h2>Nirjhor</h2>
-
-<div class="nav">
-<?php if (!isset($_SESSION['id'])) { ?>
-
-    <form action="../auth/login.php" method="get">
-        <button type="submit">Login</button>
-    </form>
-
-    <form action="../auth/register.php" method="get">
-        <button type="submit">Sign Up</button>
-    </form>
-
-<?php } else { ?>
-
-    <?php if ($_SESSION['role'] === 'customer') { ?>
-        <a href="cart.php"><button>Cart</button></a>
-    <?php } ?>
-
-    <?php if ($_SESSION['role'] === 'seller') { ?>
-        <a href="../seller/dashboard.php"><button>Dashboard</button></a>
-    <?php } ?>
-
-    <?php if ($_SESSION['role'] === 'admin') { ?>
-        <a href="../admin/dashboard.php"><button>Dashboard</button></a>
-    <?php } ?>
-
-    <a href="../auth/logout.php"><button>Logout</button></a>
-
-<?php } ?>
-</div>
-
-<div class="products">
-<?php foreach ($products as $p): ?>
-    <div style="border:1px solid #000; width:200px; padding:10px; margin:10px; display:inline-block;">
-        <img src="<?= $p['image'] ?>" width="150"><br>
-        <b><?= $p['name'] ?></b><br>
-        Price: <?= $p['price'] ?> Tk<br><br>
-
-        <!-- ✅ FIX: product_id -->
-        <a href="../../controllers/cartController.php?add=<?= $p['product_id'] ?>">
-            Add to Cart
-        </a>
+    <h2>Our Products</h2>
+    <div class="products">
+        <?php foreach($products as $p): ?>
+            <div class="product-card">
+                <img src="<?= $p['image'] ?>" width="150" alt="<?= $p['name'] ?>">
+                <b><?= $p['name'] ?></b><br>
+                Price <?= $p['price'] ?> Tk<br><br>
+                <a href="../../controllers/cartController.php?add=<?= $p['product_id'] ?>">Add to Cart</a>
+            </div>
+        <?php endforeach; ?>
     </div>
-<?php endforeach; ?>
-</div>
-
 </body>
 </html>
