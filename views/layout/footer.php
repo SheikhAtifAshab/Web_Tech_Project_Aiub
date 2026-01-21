@@ -6,6 +6,7 @@
         font-size:14px;
         color:#7f8c8d;
         padding:15px 0 5px 0;
+        margin-top:auto;
     }
     .footer .social-links {
         margin:10px 0;
@@ -29,8 +30,6 @@
         height:18px;
         display:block;
     }
-</style>
-
 </style>
 
 <footer class="footer">
