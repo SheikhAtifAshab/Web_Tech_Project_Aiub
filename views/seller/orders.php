@@ -40,6 +40,28 @@ $res = mysqli_query($conn, $query);
     <title>Seller Orders</title>
 </head>
 <body>
+  
+    
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="dashboard.php" class="logo-link">
+                    <img src="../../assets/images/logo.png" alt="Logo" class="logo-img">
+                    <span class="site-name">SELLER PANEL</span>
+                </a>
+            </div>
+            
+            <div class="header-buttons">
+                <a href="dashboard.php" class="btn-header btn-login">Dashboard</a>
+                <a href="add_product.php" class="btn-header btn-signup">Add Product</a>
+                <a href="manage_products.php" class="btn-header btn-login">Manage Products</a>
+                <a href="orders.php" class="btn-header btn-login">Orders</a>
+                <a href="../auth/logout.php" class="btn-header btn-logout">Logout</a>
+            </div>
+        </div>
+    </header>
+
+   
 
 <h2>Orders Containing Your Products</h2>
 

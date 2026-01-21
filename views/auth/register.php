@@ -1,15 +1,11 @@
-<?php
-session_start();
-?>
-
+<?php session_start(); ?>
 <!doctype html>
 <html>
 <head>
-    <title>Register</title>
+    <title>Register - Nirjhor</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
     
     <header class="site-header">
         <div class="header-container">
@@ -27,47 +23,31 @@ session_start();
         </div>
     </header>
 
-    
+    <h2>User Registration</h2>
+    <form action="../../controllers/authController.php" method="POST">
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Enter your name">
+        <span name="nameErr"><?php if(isset($_GET['nameErr'])) echo $_GET['nameErr']; ?></span>
 
-<h2>User Registration</h2>
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter email">
+        <span name="emailErr"><?php if(isset($_GET['emailErr'])) echo $_GET['emailErr']; ?></span>
 
-<form action="../../controllers/authController.php" method="POST">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter password">
+        <span name="passErr"><?php if(isset($_GET['passErr'])) echo $_GET['passErr']; ?></span>
 
-    <label>Full Name:</label><br>
-    <input type="text" name="name" required><br><br>
+        <label>User Type</label>
+        <select name="usertype">
+            <option value="customer">Customer</option>
+            <option value="seller">Seller</option>
+        </select>
 
-    <label>Email:</label><br>
-    <input type="email" name="email" required><br><br>
+        <input type="submit" name="register" value="Register">
+    </form>
 
-    <label>Password:</label><br>
-    <input type="password" name="password" required><br><br>
-
-    <label>Register As:</label><br>
-    <input type="radio" name="role" value="customer" checked onclick="toggleSeller(false)"> Customer
-    <input type="radio" name="role" value="seller" onclick="toggleSeller(true)"> Seller
-    <br><br>
-
-    <!-- Seller-only fields -->
-    <div id="sellerFields" style="display:none;">
-        <label>Shop Name:</label><br>
-        <input type="text" name="shop_name"><br><br>
-
-        <label>Shop Address:</label><br>
-        <input type="text" name="shop_address"><br><br>
-    </div>
-
-    <input type="submit" name="register" value="Register">
-
-</form>
-
-<br>
-<a href="login.php">Already have an account? Login</a>
-
-<script>
-function toggleSeller(show){
-    document.getElementById("sellerFields").style.display = show ? "block" : "none";
-}
-</script>
-
+    <p style="text-align:center;">
+        Already have an account? <a href="login.php">Login here</a>
+    </p>
 </body>
 </html>
