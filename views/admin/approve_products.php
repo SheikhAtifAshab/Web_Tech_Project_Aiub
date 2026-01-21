@@ -62,3 +62,5 @@ $products = getPendingProducts();
 <a href="dashboard.php">
     <button type="button">Return to Dashboard</button>
 </a>
+<?php include __DIR__ . '/../layout/footer.php'; ?>
+

@@ -40,3 +40,5 @@ Image:
     <button type="button">Return to Dashboard</button>
 </a>
 </form>
+
+<?php include __DIR__ . '/../layout/footer.php'; ?>

@@ -32,3 +32,6 @@ session_start();
 <p>Thank you for your purchase.</p>
 
 <a href="products.php">Continue Shopping</a>
+
+<?php include __DIR__ . '/../layout/footer.php'; ?>
+

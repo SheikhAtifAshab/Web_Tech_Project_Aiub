@@ -95,3 +95,5 @@ $total = 0;
 
 </body>
 </html>
+<?php include __DIR__ . '/../layout/footer.php'; ?>
+

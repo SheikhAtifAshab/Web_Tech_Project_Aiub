@@ -59,3 +59,5 @@ foreach ($_SESSION['cart'] as $item) {
 
 </body>
 </html>
+
+<?php include __DIR__ . '/../layout/footer.php'; ?>

@@ -25,11 +25,10 @@
 
     <h2>Login</h2>
     <form action="../../controllers/authController.php" method="POST">
-        User Id
-        <input type="text" name="id" placeholder="Input Id"><br>
-        <span name="idErr">
-            <?php if (isset($_GET['idErr'])) echo $_GET['idErr']; ?>
-        </span><br>
+        Enter E-mail:
+        <input type="email" name="email" placeholder="Input Email"><br>
+        <span name="emailErr"><?php if(isset($_GET["emailErr"])){echo $_GET["emailErr"];}?></span><br>
+
 
         Password
         <input type="password" name="password" placeholder="Input password"><br>
@@ -49,3 +48,6 @@
     </span>
 </body>
 </html>
+
+<?php include __DIR__ . '/../layout/footer.php'; ?>
+

@@ -35,3 +35,5 @@ session_start();
 <a href="../auth/logout.php">
     <button>Logout</button>
 </a>
+<?php include __DIR__ . '/../layout/footer.php'; ?>
+

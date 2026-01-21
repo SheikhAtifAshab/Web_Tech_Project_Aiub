@@ -55,3 +55,4 @@ $products = getApprovedProducts();
     </div>
 </body>
 </html>
+<?php include __DIR__ . '/../layout/footer.php'; ?>
