@@ -7,6 +7,12 @@ if ($_SESSION['role'] != 'admin') {
 require_once "../../models/productModel.php";
 $products = getPendingProducts();
 ?>
+<!doctype html>
+<html>
+<head>
+    <title>Nirjhor</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
 
 <h2>Approve Products</h2>
 

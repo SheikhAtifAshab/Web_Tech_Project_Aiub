@@ -21,6 +21,8 @@ foreach ($_SESSION['cart'] as $item) {
 <html>
 <head>
     <title>Checkout</title>
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
 <body>
 
