@@ -22,7 +22,6 @@ foreach ($_SESSION['cart'] as $item) {
 <head>
     <title>Checkout</title>
     <link rel="stylesheet" href="../css/style.css">
-
 </head>
 <body>
 
@@ -37,14 +36,12 @@ foreach ($_SESSION['cart'] as $item) {
             </div>
             
             <div class="header-buttons">
-                <a href="products.php" class="btn-header btn-login">Products</a>
+                <a href="products.php" class="btn-header btn-login">Return to home</a>
                 <a href="cart.php" class="btn-header btn-login">Cart</a>
                 <a href="../auth/logout.php" class="btn-header btn-logout">Logout</a>
             </div>
         </div>
     </header>
-
-    
 
 <h2>Checkout</h2>
 
@@ -59,5 +56,3 @@ foreach ($_SESSION['cart'] as $item) {
 
 </body>
 </html>
-
-<?php include __DIR__ . '/../layout/footer.php'; ?>

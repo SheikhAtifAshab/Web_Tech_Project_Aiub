@@ -1,18 +1,15 @@
 <?php
 session_start();
 
-// Only customer can access cart
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'customer') {
     header("Location: ../auth/login.php");
     exit();
 }
 
-// Initialize cart if not exists
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-// Handle remove item
 if (isset($_GET['remove'])) {
     $removeId = $_GET['remove'];
     unset($_SESSION['cart'][$removeId]);
@@ -30,7 +27,7 @@ $total = 0;
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <header class="site-header">
+     <header class="site-header">
         <div class="header-container">
             <div class="logo-section">
                 <a href="products.php" class="logo-link">
@@ -40,9 +37,6 @@ $total = 0;
             </div>
             
             <div class="header-buttons">
-                <a href="products.php" class="btn-header btn-login">Products</a>
-                <a href="cart.php" class="btn-header btn-login">Cart</a>
-                <a href="orders.php" class="btn-header btn-login">Orders</a>
                 <a href="../auth/logout.php" class="btn-header btn-logout">Logout</a>
             </div>
         </div>
@@ -51,7 +45,7 @@ $total = 0;
 <h2>🛒 My Cart</h2>
 
 <?php if (empty($_SESSION['cart'])) { ?>
-    <p>Your cart is empty.</p>
+    <p >Your cart is empty.</p>
     <a href="products.php">Continue Shopping</a>
 <?php } else { ?>
 
@@ -88,12 +82,12 @@ $total = 0;
 </table>
 
 <br>
-<a href="checkout.php">Proceed to Checkout</a> |
-<a href="products.php">Continue Shopping</a>
-
+<div class="checkout-links">
+    <a href="checkout.php">Proceed to Checkout</a>
+    |
+    <a href="products.php">Continue Shopping</a>
+</div>
 <?php } ?>
 
 </body>
 </html>
-<?php include __DIR__ . '/../layout/footer.php'; ?>
-

@@ -22,8 +22,6 @@ session_start();
     </header>
 
 </body>
-
-
 <h2>Add Product </h2>
 
 <form action="../../controllers/productController.php" method="POST" enctype="multipart/form-data">
@@ -33,12 +31,12 @@ session_start();
 <textarea name="description" placeholder="Product details"></textarea><br>
 Image:
 <input type="file" name="image" required><br><br>
-<input type="submit" name="addProduct" value="Add Product">
-
-<input type="reset" value="reset">
+<input type="submit" name="addProduct" value="Add Product"><br><br>
+<a href="add_product.php">
+    <button type="button">Reset</button>
+</a><br><br>
 <a href="dashboard.php">
     <button type="button">Return to Dashboard</button>
-</a>
+</a><br><br>
 </form>
-
 <?php include __DIR__ . '/../layout/footer.php'; ?>

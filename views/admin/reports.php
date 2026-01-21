@@ -8,9 +8,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 require_once "../../models/dbConnect.php";
 $conn = dbConnect();
 
-/* ================= METRICS ================= */
-
-// Users
 $totalUsers = mysqli_fetch_assoc(
     mysqli_query($conn, "SELECT COUNT(*) AS total FROM users")
 )['total'];
@@ -27,7 +24,6 @@ $pendingSellers = mysqli_fetch_assoc(
     mysqli_query($conn, "SELECT COUNT(*) AS total FROM users WHERE role='seller' AND is_approved=0")
 )['total'];
 
-// Orders
 $totalOrders = mysqli_fetch_assoc(
     mysqli_query($conn, "SELECT COUNT(*) AS total FROM orders")
 )['total'];
@@ -36,12 +32,17 @@ $totalRevenue = mysqli_fetch_assoc(
     mysqli_query($conn, "SELECT IFNULL(SUM(total_amount),0) AS total FROM orders")
 )['total'];
 
-// Today stats
 $todayOrders = mysqli_fetch_assoc(
     mysqli_query($conn, "SELECT COUNT(*) AS total FROM orders WHERE DATE(created_at)=CURDATE()")
 )['total'];
 ?>
 
+<!doctype html>
+<html>
+<head>
+    <title>Admin Reports</title>
+</head>
+<body>
 <!doctype html>
 <html>
 <head>
@@ -63,15 +64,12 @@ $todayOrders = mysqli_fetch_assoc(
             
             <div class="header-buttons">
                 <a href="dashboard.php" class="btn-header btn-login">Dashboard</a>
-                <a href="manage_users.php" class="btn-header btn-login">Users</a>
-                <a href="approve_products.php" class="btn-header btn-login">Products</a>
-                <a href="reports.php" class="btn-header btn-login">Reports</a>
+                <a href="manage_users.php" class="btn-header btn-login">Manage Users</a>
+                <a href="approve_products.php" class="btn-header btn-login">Return to home</a>
                 <a href="../auth/logout.php" class="btn-header btn-logout">Logout</a>
             </div>
         </div>
     </header>
-
-   
 <h2>📊 System Reports</h2>
 
 <table border="1" cellpadding="10">
@@ -117,7 +115,7 @@ $todayOrders = mysqli_fetch_assoc(
 </table>
 
 <br>
-<a href="dashboard.php">⬅ Back to Dashboard</a>
 
 </body>
 </html>
+<?php include __DIR__ . '/../layout/footer.php'; ?>

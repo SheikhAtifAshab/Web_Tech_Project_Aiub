@@ -1,12 +1,11 @@
-<?php ?>
+<?php?>
 <!doctype html>
 <html>
-<head>
-    <title>Login - Nirjhor</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+    <head>
+        <title>Login - Nirjhor</title>
+        <link rel="stylesheet" href ="../css/style.css">
+    </head>
 <body>
-    
     <header class="site-header">
         <div class="header-container">
             <div class="logo-section">
@@ -17,8 +16,7 @@
             </div>
             
             <div class="header-buttons">
-                <a href="login.php" class="btn-header btn-login">Login</a>
-                <a href="register.php" class="btn-header btn-signup">Sign Up</a>
+                <a href="../customer/products.php" class="btn-header btn-login">Return to Home</a>
             </div>
         </div>
     </header>
@@ -28,26 +26,17 @@
         Enter E-mail:
         <input type="email" name="email" placeholder="Input Email"><br>
         <span name="emailErr"><?php if(isset($_GET["emailErr"])){echo $_GET["emailErr"];}?></span><br>
-
-
-        Password
-        <input type="password" name="password" placeholder="Input password"><br>
-        <span name="passErr">
-            <?php if (isset($_GET['passErr'])) echo $_GET['passErr']; ?>
-        </span><br>
-
-        <input type="submit" name="submit" value="Login">
+        Password:
+        <input type="password" name="password"placeholder="password"><br>
+        <span name="passErr"><?php if(isset($_GET["passErr"])){echo $_GET["passErr"];}?></span><br>
+        <span name="genErr"><?php if(isset($_GET["genErr"])){echo $_GET["genErr"];}?></span>
+        <input type="submit" name="submit" value="submit">
     </form>
-
     <p style="text-align:center;">
         Don't have an account? <a href="register.php">Sign up here</a>
     </p>
-
-    <span name="genErr">
-        <?php if (isset($_GET['genErr'])) echo $_GET['genErr']; ?>
-    </span>
+    
 </body>
 </html>
 
 <?php include __DIR__ . '/../layout/footer.php'; ?>
-

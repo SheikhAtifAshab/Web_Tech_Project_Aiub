@@ -11,8 +11,8 @@
     .footer .social-links {
         margin:10px 0;
         display:flex;
-        justify-content:center; /* মাঝখানে আনার জন্য */
-        gap:8px;                /* logo এর মাঝে দূরত্ব */
+        justify-content:center; 
+        gap:8px;                
     }
     .footer .social-links a {
         width:30px;
@@ -37,12 +37,12 @@
 
     <div class="social-links">
         <!-- Facebook -->
-        <a href="https://www.facebook.com/yourpage" target="_blank">
+        <a href="https://www.facebook.com/nirjhorcrafts" target="_blank">
             <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
         </a>
 
         <!-- Instagram -->
-        <a href="https://www.instagram.com/yourpage" target="_blank">
+        <a href="https://www.instagram.com/nirjhor_crafts%20" target="_blank">
             <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
         </a>
 
@@ -55,7 +55,7 @@
     <p>
         Contact:
         <a href="mailto:info@smartshop.com">www.nirjhor.com</a> |
-        Phone: +8801318494623
+        Phone: +8801318494623, +8801625137133
     </p>
     <p>Address: Kuratoli,Dhaka, Bangladesh</p>
 </footer>

@@ -1,12 +1,15 @@
-<?php session_start(); ?>
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html>
 <head>
-    <title>Register - Nirjhor</title>
+    <title>Register</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+        
     <header class="site-header">
         <div class="header-container">
             <div class="logo-section">
@@ -17,38 +20,48 @@
             </div>
             
             <div class="header-buttons">
-                <a href="login.php" class="btn-header btn-login">Login</a>
-                <a href="register.php" class="btn-header btn-signup">Sign Up</a>
+                <a href="../customer/products.php" class="btn-header btn-login">Return to home</a>
             </div>
         </div>
     </header>
 
-    <h2>User Registration</h2>
-    <form action="../../controllers/authController.php" method="POST">
-        <label>Name</label>
-        <input type="text" name="name" placeholder="Enter your name">
-        <span name="nameErr"><?php if(isset($_GET['nameErr'])) echo $_GET['nameErr']; ?></span>
+<h2>User Registration</h2>
 
-        <label>Email</label>
-        <input type="email" name="email" placeholder="Enter email">
-        <span name="emailErr"><?php if(isset($_GET['emailErr'])) echo $_GET['emailErr']; ?></span>
+<form action="../../controllers/authController.php" method="POST">
 
-        <label>Password</label>
-        <input type="password" name="password" placeholder="Enter password">
-        <span name="passErr"><?php if(isset($_GET['passErr'])) echo $_GET['passErr']; ?></span>
+    <label>Full Name:</label>
+    <input type="text" name="name" required><br>
 
-        <label>User Type</label>
-        <select name="usertype">
-            <option value="customer">Customer</option>
-            <option value="seller">Seller</option>
-        </select>
+    <label>Email:</label>
+    <input type="email" name="email" required><br>
 
-        <input type="submit" name="register" value="Register">
-    </form>
+    <label>Password:</label>
+    <input type="password" name="password" required><br>
 
-    <p style="text-align:center;">
+    <label>Register As:</label>
+    <input type="radio" name="role" value="customer" checked onclick="toggleSeller(false)"> Customer
+    <input type="radio" name="role" value="seller" onclick="toggleSeller(true)"> Seller
+    <br><br>
+    <div id="sellerFields" style="display:none;">
+        <label>Shop Name:</label>
+        <input type="text" name="shop_name"><br>
+
+        <label>Shop Address:</label>
+        <input type="text" name="shop_address"><br>
+    </div>
+
+    <input type="submit" name="register" value="Register">
+<br>
+<script>
+function toggleSeller(show){
+    document.getElementById("sellerFields").style.display = show ? "block" : "none";
+}
+</script>
+</form>
+<p style="text-align:center;">
         Already have an account? <a href="login.php">Login here</a>
     </p>
 </body>
 </html>
+
 <?php include __DIR__ . '/../layout/footer.php'; ?>

@@ -33,6 +33,7 @@ $products = getSellerProducts($_SESSION['id']);
 <h2>Manage Products</h2>
 
 <table border="1">
+    
 <tr>
     <th>Image</th>
     <th>Name</th>
@@ -42,9 +43,10 @@ $products = getSellerProducts($_SESSION['id']);
     <th>Delete</th>
 </tr>
 
+
 <?php foreach ($products as $p): ?>
 <tr>
-    <td><img src="<?= $p['image'] ?>" width="80"></td>
+    <td><img src="../../assets/images/<?= htmlspecialchars($image) ?>" width="150"></td>
     <td><?= $p['name'] ?></td>
     <td><?= $p['price'] ?></td>
     <td><?= $p['status'] ?></td>
@@ -71,3 +73,4 @@ $products = getSellerProducts($_SESSION['id']);
 <a href="dashboard.php">
     <button type="button">Return to Dashboard</button>
 </a>
+<?php include __DIR__ . '/../layout/footer.php'; ?>

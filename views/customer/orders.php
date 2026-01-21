@@ -19,9 +19,8 @@ session_start();
             </div>
             
             <div class="header-buttons">
-                <a href="products.php" class="btn-header btn-login">Products</a>
+                <a href="products.php" class="btn-header btn-login">Return to home</a>
                 <a href="cart.php" class="btn-header btn-login">Cart</a>
-                <a href="orders.php" class="btn-header btn-login">Orders</a>
                 <a href="../auth/logout.php" class="btn-header btn-logout">Logout</a>
             </div>
         </div>
@@ -32,6 +31,4 @@ session_start();
 <p>Thank you for your purchase.</p>
 
 <a href="products.php">Continue Shopping</a>
-
 <?php include __DIR__ . '/../layout/footer.php'; ?>
-

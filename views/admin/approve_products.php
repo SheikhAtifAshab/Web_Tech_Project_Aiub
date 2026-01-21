@@ -25,26 +25,28 @@ $products = getPendingProducts();
             </div>
             
             <div class="header-buttons">
-                <a href="dashboard.php" class="btn-header btn-login">Dashboard</a>
-                <a href="manage_users.php" class="btn-header btn-login">Users</a>
-                <a href="approve_products.php" class="btn-header btn-login">Products</a>
-                <a href="reports.php" class="btn-header btn-login">Reports</a>
+                <a href="../customer/products.php" class="btn-header btn-login">Return to home</a>
+                <a href="manage_users.php" class="btn-header btn-login">Manage Users</a>
                 <a href="../auth/logout.php" class="btn-header btn-logout">Logout</a>
             </div>
         </div>
     </header>
 
 </body>
+
 <h2>Approve Products</h2>
 
 <table border="1">
+<thead>
 <tr>
+    
     <th>Image</th>
     <th>Name</th>
     <th>Price</th>
     <th>Seller</th>
     <th>Action</th>
 </tr>
+</thead>
 
 <?php foreach ($products as $p): ?>
 <tr>
@@ -63,4 +65,3 @@ $products = getPendingProducts();
     <button type="button">Return to Dashboard</button>
 </a>
 <?php include __DIR__ . '/../layout/footer.php'; ?>
-
